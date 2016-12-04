@@ -4,6 +4,7 @@ local input = io.open(minetest.get_worldpath() .. "/ips", "r")
 if input then
 	ips = minetest.deserialize(input:read("*l"))
 	io.close(input)
+end
 
 --Add the Privileg.
 minetest.register_privilege("ip", "Player can get ip's from other players")
@@ -33,7 +34,11 @@ function getip.set_ip(player, ip)
 	end
 	geti.save_ips()
 end
-	
-	
+
+function getip.get_ip(player)
+	return ips[player].ip
+end
+
 minetest.register_on_join_player(function(player)
-	
+	getip.set_ip(player, minetest.get_player_ip(player))
+end)
