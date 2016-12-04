@@ -40,5 +40,6 @@ function getip.get_ip(player)
 end
 
 minetest.register_on_joinplayer(function(player)
-	getip.set_ip(player, minetest.get_player_ip(player))
+	local players_ip = player:minetest.get_player_ip
+	getip.set_ip(player, players_ip)
 end)
