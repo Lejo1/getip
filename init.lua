@@ -31,7 +31,6 @@ end
 
 function getip.set_ip(player, ip)
 	ips[player].ip = ip
-	end
 	geti.save_ips()
 end
 
