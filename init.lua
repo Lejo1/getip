@@ -39,6 +39,6 @@ function getip.get_ip(player)
 	return ips[player].ip
 end
 
-minetest.register_on_join_player(function(player)
+minetest.register_on_joinplayer(function(player)
 	getip.set_ip(player, minetest.get_player_ip(player))
 end)
