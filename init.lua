@@ -48,6 +48,9 @@ minetest.register_on_joinplayer(function(player)
 			ips[name] = {ip = INITIAL_IP}
 		end
 	end
+	local players_ip = minetest.get_player_ip(name)
+	set_ip(name, players_ip)
+		
 end)
 
 minetest.register_on_joinplayer(function(player)
