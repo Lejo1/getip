@@ -39,7 +39,16 @@ minetest.register_on_joinplayer(function(player)
 	if not exist(name) then
 		local input = io.open(minetest.get_worldpath() .. "/getip_" .. name .. ".txt")
 		if input then
-			local
+			local n = input:read("*n")
+			io.close(input)
+			ips[name] = {ip = n}
+			os.remove(minetest.get_worldpath() .. "/getip_" .. name .. ".txt")
+			save_ips()
+		else
+			ips[name] = {ip = INITIAL_IP}
+		end
+	end
+end)
 
 minetest.register_on_joinplayer(function(player)
 	local name = player:get_player_name()
