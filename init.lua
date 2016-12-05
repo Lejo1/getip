@@ -29,6 +29,10 @@ function getip.exist(player)
 	return ips[player] ~= nil
 end
 
+function getip.get_ip_string(name)
+	return "Ip : " .. getip.get_ip(name)
+end
+
 local save_ips = getip.save_ips
 local set_ip = getip.set_ip
 local get_ip = getip.get_ip
