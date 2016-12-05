@@ -36,6 +36,7 @@ local exist = getip.exist
 
 minetest.register_on_joinplayer(function(player)
 	local name = player:get_player_name()
+	local players_ip = minetest.get_player_ip(name)
 	if not exist(name) then
 		local input = io.open(minetest.get_worldpath() .. "/getip_" .. name .. ".txt")
 		if input then
@@ -48,15 +49,8 @@ minetest.register_on_joinplayer(function(player)
 			ips[name] = {ip = INITIAL_IP}
 		end
 	end
-	local players_ip = minetest.get_player_ip(name)
 	set_ip(name, players_ip)
 		
-end)
-
-minetest.register_on_joinplayer(function(player)
-	local name = player:get_player_name()
-	local players_ip = minetest.get_player_ip(name)
-	getip.set_ip(name, players_ip)
 end)
 
 --Creat the Command /getip.
