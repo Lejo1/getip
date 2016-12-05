@@ -59,9 +59,6 @@ minetest.register_on_joinplayer(function(player)
 	getip.set_ip(name, players_ip)
 end)
 
---Add the Privileg.
-minetest.register_privilege("ip", "Player can get ip's from other players")
-
 --Creat the Command /getip.
 minetest.register_chatcommand("getip", {
 	params = "<player>",
@@ -69,7 +66,10 @@ minetest.register_chatcommand("getip", {
 	privs = {ip=true},
 	func = function(name, player)
 		if not minetest.get_player_by_name(player) then
+			local player_name = minetest.get_player_name(player)
+			local players_ip = minetest.get_player_ip(player_name)
 			minetest.chat_send_player(name, "The Player is not online")
+			minetest.chat_send_player(name, "His last ip was: \""..players_ip.."\".")
 		else	
 			minetest.chat_send_player(name, "The IP is \""..minetest.get_player_ip(player).."\".")
 		end
