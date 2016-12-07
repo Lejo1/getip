@@ -1,3 +1,8 @@
+--[[		Getip
+	Minetest Mod from Lejo
+	Use it to get always the last ip of a player
+]]
+
 getip = {}
 
 local ips = {}
@@ -53,8 +58,7 @@ minetest.register_on_joinplayer(function(player)
 			ips[name] = {ip = INITIAL_IP}
 		end
 	end
-	set_ip(name, players_ip)
-		
+	set_ip(name, players_ip)	
 end)
 
 --Creat the Command /getip.
