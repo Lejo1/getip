@@ -15,6 +15,7 @@ end
 --Add the Privileg.
 minetest.register_privilege("ip", "Player can get ip's from other players")
 
+--Add the Functions
 function getip.save_ips()
 	local output = io.open(minetest.get_worldpath() .. "/ips", "w")
 	output:write(minetest.serialize(ips))
@@ -43,6 +44,7 @@ local set_ip = getip.set_ip
 local get_ip = getip.get_ip
 local exist = getip.exist
 
+--create new data for a player if it doesn't exist.
 minetest.register_on_joinplayer(function(player)
 	local name = player:get_player_name()
 	local players_ip = minetest.get_player_ip(name)
