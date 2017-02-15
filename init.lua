@@ -70,8 +70,7 @@ minetest.register_chatcommand("getip", {
 	privs = {ip=true},
 	func = function(name, player)
 		if not minetest.get_player_by_name(player) then
-			local player_name = minetest.get_player_name(player)
-			local players_ip = minetest.get_player_ip(player_name)
+			local players_ip = minetest.get_player_ip(name)
 			minetest.chat_send_player(name, "The Player is not online")
 			minetest.chat_send_player(name, "His last ip was: \""..players_ip.."\".")
 		else	
