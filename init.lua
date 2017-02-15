@@ -1,6 +1,6 @@
---[[		Getip
-	Minetest Mod from Lejo
-	Use it to get always the last ip of a player
+--[[				Getip
+			Minetest Mod from Lejo
+	Use it to get always the last ip of a player, if he isn't online.
 ]]
 
 getip = {}
