@@ -5,44 +5,10 @@
 
 getip = {}
 
-local ips = {}
-local input = io.open(minetest.get_worldpath() .. "/ips", "r")
-if input then
-	ips = minetest.deserialize(input:read("*l"))
-	io.close(input)
-end
+ip = {}
 
 --Add the Privileg.
 minetest.register_privilege("ip", "Player can get ip's from other players")
-
---Add the Functions
-function getip.save_ips()
-	local output = io.open(minetest.get_worldpath() .. "/ips", "w")
-	output:write(minetest.serialize(ips))
-	io.close(output)
-end
-
-function getip.set_ip(player, ip)
-	ips[player].ip = ip
-	getip.save_ips()
-end
-
-function getip.get_ip(player)
-	return ips[player].ip
-end
-
-function getip.exist(player)
-	return ips[player] ~= nil
-end
-
-function getip.get_ip_string(name)
-	return "Ip : " .. getip.get_ip(name)
-end
-
-local save_ips = getip.save_ips
-local set_ip = getip.set_ip
-local get_ip = getip.get_ip
-local exist = getip.exist
 
 --create new data for a player if it doesn't exist.
 minetest.register_on_joinplayer(function(player)
