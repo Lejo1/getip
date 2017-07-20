@@ -14,19 +14,7 @@ minetest.register_privilege("ip", "Player can get ip's from other players")
 minetest.register_on_joinplayer(function(player)
 	local name = player:get_player_name()
 	local players_ip = minetest.get_player_ip(name)
-	if not exist(name) then
-		local input = io.open(minetest.get_worldpath() .. "/getip_" .. name .. ".txt")
-		if input then
-			local n = input:read("*n")
-			io.close(input)
-			ips[name] = {ip = n}
-			os.remove(minetest.get_worldpath() .. "/getip_" .. name .. ".txt")
-			save_ips()
-		else
-			ips[name] = {ip = INITIAL_IP}
-		end
-	end
-	set_ip(name, players_ip)	
+	ip[name] = players_ip	
 end)
 
 --Creat the Command /getip.
