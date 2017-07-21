@@ -23,8 +23,7 @@ minetest.register_chatcommand("getip", {
 	description = "Show other ips.",
 	privs = {ip=true},
 	func = function(name, player)
-		local pobj = minetest.get_player_by_name(player)
-		if pobj:is_player_connected() ~= true then
+		if not minetest.get_player_by_name(player) then
 			minetest.chat_send_player(name, "The Player is not online")
 			if ip[player] then
 				minetest.chat_send_player(name, "His last ip was: \""..ip[player].."\".")
