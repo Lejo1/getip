@@ -4,3 +4,5 @@ By just typing /getip <name>.
 You can also can get ips from not connected players, if they were online since the last server restart.	
 
 License: CC0
+
+Created by [Lejo](https://github.com/Lejo1)
