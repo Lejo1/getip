@@ -5,7 +5,7 @@
 
 getip = {}
 
-local ip = {}
+ip = {}
 
 --Add the Privileg.
 minetest.register_privilege("ip", "Player can get ip's from other players")
